@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\P.Core.Http\P.Core.Http.csproj" />
+    <ProjectReference Include="..\P.Netstandard21.Http\P.Netstandard21.Http.csproj" />
   </ItemGroup>
 
 </Project>
