@@ -1,6 +1,4 @@
-﻿using System.Net;
-using System.Text;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using P.Core.Http;
 using P.Netstandard21.Http;
 
@@ -96,7 +94,5 @@ namespace P.Core.WeChatApi
 			}
 			return false;
 		}
-
-	
 	}
 }

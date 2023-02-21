@@ -76,7 +76,7 @@ namespace P.Core.Http
 		public string Username { get; set; }
 	}
 
-	public class PHttp : IDisposable
+	public class PHttp 
 
 	{
 		private static HttpClient SingletonHttpClient = new HttpClient();

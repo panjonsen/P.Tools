@@ -10,7 +10,7 @@ namespace P.Core.Nlog
 		//默认加载当前目录下的nlog.config
 		private Logger logger;
 
-		public PLog() 
+		public PLog()
 		{
 			if (!File.Exists(Environment.CurrentDirectory + "/" + "nlog.config"))
 			{
