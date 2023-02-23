@@ -76,7 +76,7 @@ namespace P.Core.Http
 		public string Username { get; set; }
 	}
 
-	public class PHttp 
+	public class PHttp
 
 	{
 		private static HttpClient SingletonHttpClient = new HttpClient();
@@ -99,19 +99,19 @@ namespace P.Core.Http
 			return this;
 		}
 
-
-
 		public PHttp SetDataByJsonStr(string jsonStr)
 		{
 			_HttpOption.DataByJsonStr = jsonStr;
 			SetParameterMode(ParameterMode.JsonStr);
 			return this;
 		}
+
 		public PHttp SetData(string fieldName, string fieldValue)
 		{
 			_HttpOption.DicDatas.Add(fieldName, fieldValue);
 			return this;
 		}
+
 
 		/// <summary>
 		/// 添加文件 默认采用表单
@@ -227,6 +227,7 @@ namespace P.Core.Http
 			_HttpOption.ScopedMode = true;
 			return this;
 		}
+
 		/// <summary>
 		/// 会改变HtttpClient实例 请用Scoped模式
 		/// </summary>
@@ -258,7 +259,7 @@ namespace P.Core.Http
 			{
 				throw new Exception("请先设置Method");
 			}
-
+			
 			var request = new HttpRequestMessage(_HttpOption.Method, _HttpOption.Url);
 			if (_HttpOption.Method == HttpMethod.Get)
 			{
@@ -332,6 +333,13 @@ namespace P.Core.Http
 					request.Content = new FormUrlEncodedContent(_HttpOption.DicDatas);
 				}
 			}
+			
+			//自动补充没有的话
+			if (_HttpOption.DicHeaders.Count(m=>m.Key== "User-Agent")<=0)
+			{
+				request.Headers.Add("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36 Core/1.47.277.400 QQBrowser/9.4.7658.400");
+
+			}
 
 			foreach (var dicHeader in _HttpOption.DicHeaders)
 			{
@@ -339,11 +347,12 @@ namespace P.Core.Http
 			}
 
 
+
+
 			//string boundary = "---------------------------123456789012345";
 			//var content = new MultipartFormDataContent(boundary);
 			//string boundary = "---------------------------123456789012345";
 			//request.Content.Headers.ContentType.Parameters.Add(new NameValueHeaderValue("boundary", boundary));
-
 
 			return request;
 		}
@@ -415,9 +424,7 @@ namespace P.Core.Http
 				throw ex;
 			}
 		}
-
 	}
-
 
 	public static class ExtensionFunc
 	{
@@ -428,8 +435,6 @@ namespace P.Core.Http
 		/// <returns></returns>
 		public static string ToString2(this HttpResponseMessage hrm)
 		{
-
-
 			var s = new StreamReader(hrm.Content.ReadAsStream());
 
 			return s.ReadToEnd();

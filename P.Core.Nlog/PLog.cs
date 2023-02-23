@@ -1,6 +1,7 @@
 ﻿using NLog;
+using P.Core.Nlog;
 
-namespace P.Core.Nlog
+namespace PNLog
 {
 	/// <summary>
 	/// 如果运行目录下没有配置文件将生成默认的  否则使用当前已存在的
