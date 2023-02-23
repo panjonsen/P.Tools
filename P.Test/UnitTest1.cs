@@ -1,5 +1,7 @@
 using System.Text;
+using P.Core.Config;
 using P.Core.Http;
+using P.Core.Sms;
 using P.Core.WeChatApi;
 using P.Netstandard21.Http;
 
@@ -78,5 +80,32 @@ namespace P.Test
 
 			//
 		}
+
+
+		[Test]
+		public void ConfigTest() {
+			PConfig pConfig = new ($@"G:\csharp\linkcorenet6\miliao1.config");
+
+
+			Console.WriteLine(pConfig.Get<bool>("Debug"));
+
+
+			
+		}
+
+
+		[Test]
+		public void SmsTest() {
+
+
+
+			P.Core.Sms.PSms psms = new P.Core.Sms.PSms();
+
+		//	psms.Send("13626563981", "【登阶系统】验证码：8888，您正在登陆登阶系统。请您尽快完成登陆，切勿将验证码告知他人！");
+
+
+		}
+
+
 	}
 }

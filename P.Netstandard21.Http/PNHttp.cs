@@ -358,11 +358,13 @@ namespace P.Netstandard21.Http
 				case PNHttpMethod.Put:
 					request.Method = "PUT";
 					request = HeadersAdd(request);
+					//未完
 					break;
 
 				case PNHttpMethod.Delete:
 					request.Method = "DELETE";
 					request = HeadersAdd(request);
+					//未完
 					break;
 
 				default:

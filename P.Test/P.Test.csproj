@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\P.Core.Config\P.Core.Config.csproj" />
+    <ProjectReference Include="..\P.Core.Sms\P.Core.Sms.csproj" />
     <ProjectReference Include="..\P.Core.WeChatApi\P.Core.WeChatApi.csproj" />
 
     <ProjectReference Include="..\P.Netstandard21.Http\P.Netstandard21.Http.csproj" />
